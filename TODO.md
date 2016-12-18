@@ -6,6 +6,7 @@
  
 ### Things to actually DO
  - Update the design of the pump to mount a nema motor
+ - Make a ruby driver for stepper motor
  - Check size of tubing and buy fittings and tubings
  - Make an actual material list and ensure we got everything
  - Make a nice html interface to check temperature
