@@ -1,8 +1,8 @@
 # TODO Lists
 ### Material to buy
  - Tubings and fittigs for the pump
- - Driller
- - Extension cable for SSD Relay
+ - ~~Driller~~
+ - ~~Extension cable for SSD Relay~~
  
 ### Things to actually DO
  - Update the design of the pump to mount a nema motor
