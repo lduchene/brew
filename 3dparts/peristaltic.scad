@@ -18,21 +18,21 @@ allowed_overhang = 0.75;
 // --------  Details of the tubing used in the pump, in mm ------------
 
 // Outer diameter of your tubing in mm
-tubing_od = 4.7625;
+tubing_od = 17;
 
 // Wall thickness of your tubing
-tubing_wall_thickness = 0.79375;
+tubing_wall_thickness = 2.5;
 // Amount the tubing should be compressed by the rollers, as a proportion of total thickness (0 = no squish, 1.0 = complete squish)
-tubing_squish_ratio = 0.5;
+tubing_squish_ratio = 0.6;
 
 
 // --------  Part geometry settings ------------
 
 // Approximate outer diameter of ring in mm
-D=51.7;
+D=100;
 
 // Thickness i.e. height in mm
-T=15;
+T=45;
 
 // Number of planet gears
 number_of_planets=3;
@@ -120,7 +120,6 @@ translate([0,0,T/2])
 			// HACK: On my printer, it seems to need extra clearance for the outside gear, trying double...
 			herringbone(nr,pitch,P,DR,-2*tol,helix_angle,T+0.2);
 			cylinder(r=outerring_outer_radius+tubing_depth_clearance,h=tubing_squished_width,center=true,$fn=100);
-			cube([outerring_outer_radius+tubing_depth_clearance, outerring_outer_radius+tubing_depth_clearance, tubing_squished_width]);
 			// overhang removal for top teeth of outer ring: create a frustum starting at the top surface of the "roller" cylinder 
 			// (which will actually be cut out of the outer ring) and shrinking inward at the allowed overhang angle until it reaches the
 			// gear root diameter.
