@@ -50,7 +50,7 @@ P=45;//[30:60]
 nTwist=1;
 
 // width of hexagonal hole
-w=6.7;
+w=10;
 
 DR=0.5*1;// maximum depth ratio of teeth
 
