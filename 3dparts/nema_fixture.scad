@@ -1,4 +1,4 @@
-//include <peristaltic.scad>
+include <peristaltic.scad>
 include <nutsnbolts/cyl_head_bolt.scad>
 
 // smoothness
@@ -8,7 +8,7 @@ $fn=100;
 nema_width = 42.3;
 nema_screwholes_distance = 31;
 nema_shaft_diameter = 5;
-nema_innercircle_diameter = 22;
+nema_innercircle_diameter = 24;
 nema_innercircle_height = 2;
 
 //translate([0,0,-3.5]) nema_frontplate(1.25*nema_width, 105, 3);
@@ -16,7 +16,7 @@ nema_innercircle_height = 2;
 //nutsnscrew_plate(14,2,20,14,3, "M5", 4.5);
 //middle_plate(nema_width, 15, 20, 3);
 
-rotate(a=10, v=[0,0,1]) translate([0,0,45/2]) center_part(10,45);
+//rotate(a=10, v=[0,0,1]) translate([0,0,45/2]) center_part(10,45);
 
 module center_part(width, height) {
 	difference() {
@@ -36,20 +36,20 @@ for (i = [0:90:270]) {
 }
 }
 
-//difference() {
-//	pump_base();
-//	translate([0,0,5]) cylinder(h=10, d=102, center=true);
-/*	for (i = [0:90:270]) {
-		rotate(a=i, v=[0,0,1]) translate([57.5,0,0]) cylinder(h=100, d=5, cemter=true);
+difference() {
+	pump_base();
+	translate([0,0,5]) cylinder(h=10, d=102, center=true);
+	for (i = [0:90:270]) {
+		rotate(a=i, v=[0,0,1]) translate([57.5,0,0]) cylinder(h=100, d=5.2, cemter=true);
 	}
-}*/
+}
 
 //translate([0,0,-3.5]) nema_fixture(90, 3);
 
 module nema_fixture(width, thickness) {
 	middle_plate(nema_width+2, 14, (width-nema_width-2)/2, thickness);
 	for (i = [0:90:270] ) {
-		rotate(a=i, v=[0,0,1]) translate([width/2+6,0,3.5]) nutsnscrew_plate(14, 2, 13, 14, 3, "M5", 5);
+		rotate(a=i, v=[0,0,1]) translate([width/2+6,0,5.5]) nutsnscrew_plate(14, 4, 13, 14, 3, "M5", 5.2);
 	}
 }
 
@@ -88,9 +88,11 @@ module nutsnscrew_plate(cyl_diam, cyl_height, width, length, thickness, nuts, sc
 		translate([width/2,0,-(cyl_height+thickness)/2]) cylinder(d=cyl_diam, h=cyl_height+thickness, center=true);
 		translate([0,0,-thickness/2-cyl_height] ) cube([width,length,thickness], center=true);
 	}
-		translate([width/2,0,-(cyl_height)/2]) nut(nuts);
+		translate([width/2,0,-(cyl_height)/2-1]) nut(nuts);
 		translate([width/2,0,-(thickness+cyl_height)/2]) cylinder(d=screw_diam, h=cyl_height+thickness, center=true); 
 	}
+
+	translate([width/2,0,-(thickness+cyl_height)/2+0.5]) cylinder(d=screw_diam, h=0.2, center=true); 
 }
 
 module nutsnscrew_holes(height, screw, nut) {
