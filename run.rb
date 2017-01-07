@@ -1,4 +1,5 @@
 require 'csv'
+require 'colorize'
 
 require_relative 'switch'
 require_relative 'temperature'
@@ -32,6 +33,8 @@ while (true) do
 	CSV.open(TEMP_FILE, "a") do |csv|
 		csv << [Time.now.to_f, thermo.read]
 	end
+
+	puts "T: #{thermo.read} time: #{Time.now.to_f}".green
 
 	sleep(DELAY)
 
