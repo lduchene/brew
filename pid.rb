@@ -37,7 +37,7 @@ class PID
 	private
 	
 	def error(input)
-		@target - input
+		input - @target
 	end
 
 	def get_dt
