@@ -20,22 +20,29 @@ pid = PID.new(@kp, @kd, @ki)
 thermo = Temperature.new(BOILER_THERMO_FILE)
 heater = Switch.new(BOILER_SWITCH_PIN)
 
+
+pid.set_target(@target_temp)
+@start_time = Time.now.to_f
+
+
 CSV.open(TEMP_FILE, "w")
 
 while (true) do
+	time_delta = Time.now.to_f - @start_time
 	current_temp = thermo.read
-	pid_output = pid << current_temp
+	pid_output,p,i,d = pid << current_temp
 	if (pid_output > 0)
 		heater.on
 	else
 		heater.off
-	end
+	end	
 
 	CSV.open(TEMP_FILE, "a") do |csv|
-		csv << [Time.now.to_f, thermo.read]
+		csv << [time_delta, thermo.read]
 	end
 
 	puts "T: #{thermo.read} time: #{Time.now.to_f} pid: #{pid_output}".green
+	puts "P: #{p}, I: #{i}, D: #{d}".blue
 
 	sleep(DELAY)
 

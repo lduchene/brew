@@ -26,9 +26,12 @@ class PID
 	def get_output(input)
 		error = error(input)
 		dt = get_dt
-		out = proportional(error) + integrative(error, dt) + derivative(error, dt)
+		p = proportional(error)
+		i = integrative(error,dt)
+		d = derivative(error,dt)
+		out = p + i + d
 		@previous_error = error
-		return out	
+		return out, p, i, d
 	end
 
 	private
