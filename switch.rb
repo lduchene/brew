@@ -8,7 +8,7 @@ class Switch
 			@gpio = gpio
 		end
 		@pin = pin
-		@gpio.pin_mode(pin, WiringPI::OUTPUT)
+		@gpio.pin_mode(pin, WiringPi::OUTPUT)
 		@gpio.digital_write(@pin, 0)
 		@status = 0		
 	end
@@ -24,7 +24,7 @@ class Switch
 	end
 
 	def toggle
-		if (status == 1)
+		if (@status == 1)
 			off
 		else
 			on
