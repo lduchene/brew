@@ -1,0 +1,63 @@
+/*Main commands*/
+p
+{
+  color: darkorange;
+  text-align: justify;
+}
+h1
+{
+	font-family: Gill Sans MT,sans-serif;
+	font-size: 40px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: bold;
+  text-align: center;
+  color: #333333;
+}
+h2
+{
+	font-family: Gill Sans MT,sans-serif;
+	font-size: 32px;
+	font-style: normal;
+	font-variant: normal;
+	font-weight: bold;
+  color: #DBDBDB;
+}
+html, body {
+    height: 100%;
+    margin: 0px;
+}
+/*Boxes*/
+.wrapper
+{
+  background-color: #6F8A91;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  align-content: stretch;
+  height: 100%;
+}
+#logo_element{
+  align-self: center;
+}
+#data{
+  background-color: #282C34;
+  flex: 2;
+  display: flex;
+}
+#data_element1 {
+    flex: 1;
+}
+#data_element2 {
+    flex: 3;
+}
+#data_element3 {
+    flex: 3;
+}
+/*Others*/
+#reading
+{
+  font-size: 60px;
+  border: 3px solid;
+}
