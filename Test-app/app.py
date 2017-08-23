@@ -12,5 +12,9 @@ def index(chartID = 'chart_ID', chart_type = 'spline', chart_height = 350):
 	yAxis = {"title": {"text": 'yAxis Label'}}
 	return render_template('index.html', chartID=chartID, chart=chart, series=series, title=title, xAxis=xAxis, yAxis=yAxis)
 
+@app.route('/images/<path:path>')
+def send_img(path):
+    return send_from_directory('images', path)
+
 if __name__ == "__main__":
 	app.run(debug = True, host='0.0.0.0', port=8080, passthrough_errors=True)
