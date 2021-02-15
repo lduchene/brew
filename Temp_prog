@@ -1,0 +1,10 @@
+#nstep
+3
+#init_ramp
+74
+#target_temp,time_in_seconds
+67,10
+69,10
+75,10
+
+#First ramp to some temperature, higher than first target to compensate when the grain is added (as given by Beersmith?). When temperature is reached, add grain (temp should go down close to first target) and start program. 
